@@ -1,29 +1,40 @@
 USE hr;
 
+
 -- @block
 -- 1. Find all employees who work in department with id `90`
 SELECT first_name,
   last_name,
   department_name
 FROM employees
-WHERE department_id -- @block
-  -- 2. Find all employees who earn more than `5000`
-SELECT;
-
+WHERE department_id 
 
 -- @block
--- 3. Find all employees whose surnames starts with `L`
-SELECT;
+  -- 2. Find all employees who earn more than `5000`
+SELECT first_name,
+  last_name,
+  salary
+FROM employees
+WHERE salary > 5000 
 
+-- @block
+  -- 3. Find all employees whose surnames starts with `L`
+SELECT first_name, last_name
+FROM employees
+WHERE last_name LIKE 'a%'
 
 -- @block
 -- 4. Find all departments that location_id equals `1700`
-SELECT;
+SELECT city, location_id
+FROM locations
+WHERE location_id = 1700
 
 
 -- @block
 -- 5. Find all towns with country_id equals `US`
-SELECT;
+SELECT country_id
+FROM locations
+WHERE country_id LIKE '%US'
 
 
 -- @block
