@@ -1,10 +1,14 @@
+USE hr;
+
+
 -- @block
 -- 1. Find all employees who work in department with id `90`
-SELECT;
-
-
--- @block
--- 2. Find all employees who earn more than `5000`
+SELECT first_name,
+  last_name,
+  department_name
+FROM employees
+WHERE department_id -- @block
+  -- 2. Find all employees who earn more than `5000`
 SELECT;
 
 

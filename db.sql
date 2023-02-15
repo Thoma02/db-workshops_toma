@@ -1,11 +1,8 @@
-DROP DATABASE IF EXISTS hr;
-
-
 CREATE DATABASE hr;
 
+DROP DATABASE IF EXISTS hr;
 
 USE hr;
-
 
 CREATE TABLE regions (
     region_id NUMERIC,
