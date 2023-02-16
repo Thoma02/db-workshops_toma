@@ -1,6 +1,5 @@
 USE hr;
 
-
 -- @block
 -- 1. Find all employees who work in department with id `90`
 SELECT first_name,
