@@ -48,8 +48,7 @@ WHERE country_id = 'US';
 -- surname: `De Haan`
 SELECT salary
 FROM employees
-WHERE first_name = 'Lex'
-  AND last_name = 'De Haan';
+WHERE first_name = 'Lex' AND last_name = 'De Haan';
 
 
 -- @block
@@ -68,8 +67,7 @@ WHERE job_id = 'FI_ACCOUNT'
 SELECT first_name,
   last_name
 FROM employees
-WHERE last_name LIKE '%kk%'
-  OR LIKE '%ll%';
+WHERE (last_name LIKE '_%kk%_') OR (last_name LIKE '_%ll%_');
 
 
 -- @block
@@ -78,7 +76,7 @@ SELECT first_name,
   last_name,
   commission_pct
 FROM employees
-WHERE commission_pct = IS NULL;
+WHERE commission_pct IS NULL;
 
 
 -- @block
