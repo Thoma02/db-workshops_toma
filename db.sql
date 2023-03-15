@@ -56,9 +56,13 @@ CREATE TABLE employees (
     salary NUMERIC(8, 2),
     commission_pct NUMERIC(2, 2),
     manager_id NUMERIC(6),
-    department_id NUMERIC(4)
+    department_id NUMERIC(4),
 );
 
+
+--@block
+ALTER TABLE employees
+ADD COLUMN start_date DATA
 
 INSERT INTO regions
 VALUES (1, 'Europe');
