@@ -1,5 +1,5 @@
-use('test');
-
+// use('test');
+use()
 // db.createCollection('script2');
 
 db.script2.drop();
@@ -67,8 +67,21 @@ db.script2.find({ $or: [{ id: 2}, { name: "Joel"}, {gender: "f"}] });
 
 db.script2.find({ age: {$gte: 22, $lte: 27}, gender: "f"});
 
-db.rest.find({}, {age: 1})
+db.rest.find({}, {age: 1});
 
-db.script2.find({}, {address: {city: 1}})
+db.script2.find({}, {address: {city: 1}});
+
+//
+
+const query = { borough: 'Bronx'}
+const projection = { }
+db.script2.find(query, projection).limit(5)
+
+const query = {
+  'address.coord.0': { $lt: -65.754168 },
+  'cuisine': { $not: { $eq: 'American '}}
+}
+
+
 
 

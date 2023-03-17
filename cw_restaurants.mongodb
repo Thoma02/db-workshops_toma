@@ -1,7 +1,27 @@
-const data = require('./restaurants.json')
+const data = require('/workspaces/db-workshops/restaurants.json')
 
 use('test');
 db.rest.drop();
 db.rest.insertMany(data);
 
+// const query = {}
+// const projection = { restaurant_id }
+// db.rest.find(query, projection)
+
+const query = { borough: 'Bronx'}
+const projection = { }
+db.rest.find(query, projection).limit(5)
+
+// const query = { 'grades.score': { $gt } }
+// const projection = { }
+// db.rest.find(query, projection)
+
+// Write a MongoDB query to find the restaurants which belong to the borough Bronx and prepared either American or Chinese dish.
+
+const query = { 
+  borough: 'Bronx', 
+  // $or: [{'cuisine': 'American '}, {'cuisine': 'Chinese'}]
+}
+const projection = {}
+db.rest.find(query, projection)
 
