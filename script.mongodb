@@ -1,0 +1,74 @@
+use('test');
+
+// db.createCollection('script2');
+
+db.script2.drop();
+
+const { insertUsers } = db.script2.insertMany([
+  {
+    id: 1,
+    name: "Lillith",
+    age: 25,
+    gender: "f",
+    address: {
+      city: "Varna"
+    }
+  },
+  {
+    id: 2,
+    name: "Roman",
+    age: 32,
+    gender: "m",
+    address: {
+      city: "Sofia"
+    }
+  },
+  {
+    id: 3,
+    name: "Joel",
+    age: 27,
+    gender: "m",
+    address: {
+      city: "Varna"
+    }
+  }
+]);
+
+// for(let i = 0; insertUsers[i] !== null; i++) {
+//   const id = insertUsers[i];
+//   db.script.deleteOne({ _id: id})
+// }
+
+// const idOfInsertUsers = insertUsers[0];
+
+// db.script.deleteOne({
+//   _id: idOfInsertUsers
+// });
+
+// Object.values(insertUsers).forEach((id) => {
+//   db.script.deleteOne({ _id: id });
+// })
+
+db.script2.find({ age: { $lte: 28 }});
+
+db.script2.find({ name: "Lillith"});
+
+db.script2.findOne({ id: 2 });
+
+// $eq, $ne, $gt, $gte, $lt, $lte, $in
+
+db.script2.find({ name: { $in: ['Lillith', 'Joel'] }});
+
+db.script2.find({ age: { $eq: 32} });
+
+// $or, $and, $not, $nor - !(cond1 || cond2) == (!cond1 && !cond2)
+
+db.script2.find({ $or: [{ id: 2}, { name: "Joel"}, {gender: "f"}] });
+
+db.script2.find({ age: {$gte: 22, $lte: 27}, gender: "f"});
+
+db.rest.find({}, {age: 1})
+
+db.script2.find({}, {address: {city: 1}})
+
+

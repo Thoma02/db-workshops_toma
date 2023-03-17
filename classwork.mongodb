@@ -1,0 +1,28 @@
+// const data = require('restaurants.json')
+
+use('test');
+
+// db.example.drop();
+// db.createCollection('example');
+// db.createCollection('example2');
+
+// db.example.insertOne({
+//   color: 'red',
+//   temp: 28,
+// });
+
+const { insertedIds } = db.example.insertMany([
+  {
+    color: "yellow",
+  },
+  {
+    title: "qwe",
+  },
+]);
+
+// db.rest.insertMany(data)
+
+const idOfInsertedObject = insertedIds[0];
+db.example.deleteOne({
+  _id: idOfInsertedObject
+});
