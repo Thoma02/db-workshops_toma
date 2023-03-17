@@ -1,4 +1,4 @@
-const data = require('/home/mark/p/db/restaurants.json')
+const data = require('/workspaces/db-workshops/restaurants.json')
 
 use('test');
 db.rest.drop();
@@ -60,5 +60,11 @@ const query = {
   'cuisine': { $not: { $eq: 'American '} },  
   'grades.score': { $gt: 70 }
 }
+const projection = { }
+db.rest.find(query, projection)
+
+//Write a MongoDB query to find the restaurants which belong to the borough Bronx and prepared either American or Chinese dish.
+
+const query = {borough: 'Bronx', cuisine: {$in: ['American ', 'Chinese']}}
 const projection = { }
 db.rest.find(query, projection)
