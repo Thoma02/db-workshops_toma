@@ -68,3 +68,20 @@ db.rest.find(query, projection)
 const query = {borough: 'Bronx', cuisine: {$in: ['American ', 'Chinese']}}
 const projection = { }
 db.rest.find(query, projection)
+
+
+const query = {
+$or: [{cuisine: {$nin: ["American ", "Chinese"]}}, 
+'name': { $regex: /^Wil/}}]
+const projection = { _id: 1, name: 1, borough: 1, cuisine: 1 }
+db.rest.find(query, projection)
+
+const query = {
+$and: [{cuisine: { $not: {$eq: "American "}}},
+{cuisine: { $not: {$eq: "Chinese"}}},
+{name: {$regex: /^Wil/}}]
+}
+const projection = { _id: 1, name: 1, borough: 1, cuisine: 1 }
+db.rest.find(query, projection)
+
+// 'borough': {$or: { $eq: 'Staten Island'}, { $eq: 'Queens'}}
