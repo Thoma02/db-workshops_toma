@@ -1,0 +1,48 @@
+
+use('test');
+// db.createCollection('products');
+
+db.products.insertMany([
+  {
+    title: 'apple',
+    price: 123,
+  },
+  {
+    title: 'banana',
+    price: 250,
+  },
+  {
+    title: 'table',
+    price: 8000,
+  }
+]);
+
+//replaceOne
+db.products.replaceOne({ title: 'apple' }, { title: 'phone' }, { upsert: true });
+
+//updateOne
+db.products.updateOne({ title: 'banana' }, { $set: {title: 'NaN'} })
+db.products.updateOne({ title: 'NaN' }, { $set: {discount: '20'} })
+
+db.products.updateOne({ title: 'NaN' }, { $inc: {discount: '10'} })
+db.products.updateOne({ title: 'NaN' }, { $inc: {discount: '-10', price: 123} })
+
+db.products.updateone({ title: 'NaN'}, {$mul: { price: 0.9 }})
+
+db.products.updateOne({ title: 'NaN' }, { $min: { price: 350 }})
+
+db.products.updateOne({ title: 'NaN'}, {$unset: { discount: 1 }})
+
+db.products.updateMany( { title: 'phone' }, { $set: { price: 15000 }})
+
+db.products.find();
+
+//arrays
+db.products.updateMany({}, { $set: { shops: ['Bronx', 'Queens'] } })
+
+db.products.updateOne({ title: 'phone' }, { $push: { shops: 'Brooklyn' } })
+db.products.updateOne({ title: 'phone' }, { $push: { shops: { $each: ['Brooklyn', 'Bronx'] } } })
+
+db.products.updateOne({ title: 'phone' }, { $pull: { shops: /^B/ } })
+
+db.products.updateOne()

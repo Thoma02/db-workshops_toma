@@ -85,3 +85,39 @@ const projection = { _id: 1, name: 1, borough: 1, cuisine: 1 }
 db.rest.find(query, projection)
 
 // 'borough': {$or: { $eq: 'Staten Island'}, { $eq: 'Queens'}}
+
+// Write a MongoDB query to find the restaurant Id, name, 
+// address and geographical location for those restaurants 
+// where 2nd element of coord array contains a value which is 
+// more than 42 and upto 52..
+
+const query = { $and: [{'address.coord.1': {$gt: 42}}, {'address.coord.1': {$lt: 52}}]}
+const projection = { restaurant_id: 1, name: 1, address: 1, borough: 1}
+db.rest.find(query, projection)
+
+const query = {'address.coord.1': {$gt: 42, $lt: 52}}
+const projection = { restaurant_id: 1, name: 1, address: 1, borough: 1}
+db.rest.find(query, projection)
+
+// Write a MongoDB query to arrange the name of the restaurants 
+// in ascending order along with all the columns.
+
+const query = {}
+const projection = { name: 1 }
+db.rest.find(query, projection).sort({ name: 1 })
+
+// const restaurants = db.rest.find(query, projection)
+// db.restaurants.sort({ name: 1 })
+
+// 26. Write a MongoDB query to arrange the name of the restaurants 
+// in descending along with all the columns.
+
+const query = {}
+const projection = { name: 1 }
+db.rest.find(query, projection).sort({ name: -1 })
+
+// 27. Write a MongoDB query to arranged the name of the cuisine in ascending order and for that same cuisine borough 
+//should be in descending order.
+
+
+
