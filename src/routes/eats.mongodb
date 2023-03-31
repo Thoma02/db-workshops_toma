@@ -70,6 +70,7 @@ const data = {
   phone: '+123546',
   fullname: 'John Smith'
 }
+<<<<<<< HEAD:src/routes/eats.mongodb
 createUser(data)
 
 // update user
@@ -79,6 +80,62 @@ const data = {
 }
 const { id, ...restData } = data
 db.users.updateOne({ _id: ObjectId(data.id) }, { $set: restData })
+=======
+
+db.users.insertMany([
+  {
+    customer_id: 1,
+    name: "Joan Cormier",
+    phone: "(619) 272-2850",
+  },
+  {
+    customer_id: 2,
+    name: "Elenor Pouros",
+    phone: "(094) 867-1895",
+  },
+  {
+    customer_id: 3,
+    name: "Elenor Pouros",
+    phone: "(094) 867-1895",
+  },
+  {
+    customer_id: 4,
+    "name": "Abelardo Hoppe",
+    "phone": "(626) 751-8115",
+  },
+  {
+    customer_id: 5,
+    "name": "Abelardo Hoppe",
+    "phone": "(626) 751-8115",
+  },
+  {
+    customer_id: 6,
+     "name": "Abner Walter",
+    "phone": "(372) 038-2058",
+  },
+  {
+    customer_id: 7,
+    name: "Elenor Pouros",
+    phone: "(094) 867-1895",
+  },
+  {
+    customer_id: 3,
+    name: "Elenor Pouros",
+    phone: "(094) 867-1895",
+  },
+  {
+    customer_id: 4,
+    "name": "Abelardo Hoppe",
+    "phone": "(626) 751-8115",
+  },
+  {
+    customer_id: 5,
+    "name": "Abelardo Hoppe",
+    "phone": "(626) 751-8115",
+  },
+  
+])
+>>>>>>> Commit:eats.mongodb
 
 // create rest
 const data = {
